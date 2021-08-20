@@ -73,7 +73,7 @@ class Vexillogram
       svg << element.draw(self)
     end
 
-    filename ||= [name, :svg].join('.')
+    filename ||= [name, :svg].join('.').gsub(/\s+/, '_').downcase
     @svg.save(filename)
   end
 
