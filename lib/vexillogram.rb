@@ -25,19 +25,20 @@ class Vexillogram
   attr_accessor :name, :image_width, :image_height, :hoist_width, :fly_length, :field, :elements, :svg
 
   def initialize(name = nil, opts = {}, &blk)
-    opts = {
+    @opts = {
       aspect_ratio: '2:3',
       image_width: 200,
       image_height: nil,
-      field: '#fff'
+      field: '#fff',
+      border: true
     }.merge(opts)
 
-    @field = opts[:field]
-    @image_width = opts[:image_width].to_i
-    @image_height = opts[:image_height].to_i
+    @field = @opts[:field]
+    @image_width = @opts[:image_width].to_i
+    @image_height = @opts[:image_height].to_i
 
-    if opts[:aspect_ratio] && ([opts[:hoist_width], opts[:fly_length]].map(&:to_s).join.length < 1)
-      @hoist_width, @fly_length = opts[:aspect_ratio].split(':').map(&:to_f)
+    if @opts[:aspect_ratio] && ([@opts[:hoist_width], @opts[:fly_length]].map(&:to_s).join.length < 1)
+      @hoist_width, @fly_length = @opts[:aspect_ratio].split(':').map(&:to_f)
     end
 
     if (@image_height.zero?)
@@ -74,11 +75,15 @@ class Vexillogram
     # @svg = Victor::SVG.new width: @image_width, height: @image_height, style: { background: field }
     @svg = Victor::SVG.new width: @image_width, height: @image_height
 
-    svg.rect x: 0, y: 0, width: image_width, height: image_height, rx: 0, style: { stroke: 'black', fill: 'white' }
+
 
     @elements.each do |element|
       # instance_eval(&element.draw)
       svg << element.draw(self)
+    end
+
+    if @opts.fetch(:border)
+      svg.rect x: 0, y: 0, width: image_width, height: image_height, rx: 0, style: { stroke: 'black', fill: nil, fill_opacity: 0 }
     end
 
     filename ||= [name, :svg].join('.').gsub(/\s+/, '_').downcase
