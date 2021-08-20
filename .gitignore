@@ -1,4 +1,14 @@
 .byebug_history
 .DS_Store
 *.svg
+/.bundle/
+/.yardoc
+/_yardoc/
+/coverage/
+/doc/
+/pkg/
+/spec/reports/
+/tmp/
 
+# rspec failure tracking
+.rspec_status
