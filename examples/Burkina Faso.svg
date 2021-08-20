@@ -1,0 +1,16 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="500" height="333.33" 
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+
+
+<rect x="0" y="0" width="500" height="333.33" rx="0" style="stroke:black; fill:white"/>
+<rect x="0" y="0.0" width="500" height="166.665" rx="0" fill="red"/>
+<rect x="0" y="166.665" width="500" height="166.665" rx="0" fill="green"/>
+<g transform="translate(170.83333333333334 116.6655)">
+<polygon points="62.5 4.166625 25.0 74.99925 118.75 24.99975 6.25 24.99975 100.0 74.99925" fill="yellow"/>
+</g>
+
+</svg>
