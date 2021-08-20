@@ -17,9 +17,9 @@ require_relative 'vexillogram/element/canton'
 require_relative 'vexillogram/element/charge'
 require_relative 'vexillogram/element/field'
 require_relative 'vexillogram/element/horizontal_band'
+require_relative 'vexillogram/element/nordic_cross'
 require_relative 'vexillogram/element/star'
 require_relative 'vexillogram/element/vertical_band'
-
 
 class Vexillogram
   attr_accessor :name, :image_width, :image_height, :hoist_width, :fly_length, :field, :elements, :svg

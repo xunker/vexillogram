@@ -37,7 +37,6 @@ _Vexillogram_ and the DSL is uses are meant to be __descriptive__, not __definit
 
 This means a flag description is not expected to include exact details, and the rendered output should not be expected to completely match the official version of the flag. Things such as exact size and placement of elements, complex representations, or anything involving precise detail are not the focus of this project.
 
-For example: the flags for Denmark and Sweden both use the _Nordic Cross_ element, but the position of the crossbar (hoist-wise) differs. This tool implements the _Nordic Cross_ generically and does not allow position of the crossbar to be specified.
 ## Installation
 
 Add this line to your application's Gemfile:

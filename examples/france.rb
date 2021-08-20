@@ -1,4 +1,4 @@
-# run with `bundle exec ruby examples/burkina_faso.rb`
+# run with `bundle exec ruby examples/france.rb`
 require_relative '../lib/vexillogram'
 
 # https://en.wikipedia.org/wiki/Flag_of_France
