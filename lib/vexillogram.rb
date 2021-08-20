@@ -22,7 +22,7 @@ require_relative 'vexillogram/element/vertical_band'
 
 
 class Vexillogram
-  attr_accessor :name, :image_width, :image_height, :aspect_width, :aspect_length, :field, :elements, :svg
+  attr_accessor :name, :image_width, :image_height, :hoist_width, :fly_length, :field, :elements, :svg
 
   def initialize(name = nil, opts = {}, &blk)
     opts = {
@@ -36,8 +36,8 @@ class Vexillogram
     @image_width = opts[:image_width].to_i
     @image_height = opts[:image_height].to_i
 
-    if opts[:aspect_ratio] && ([opts[:aspect_width], opts[:aspect_length]].map(&:to_s).join.length < 1)
-      @aspect_width, @aspect_length = opts[:aspect_ratio].split(':').map(&:to_f)
+    if opts[:aspect_ratio] && ([opts[:hoist_width], opts[:fly_length]].map(&:to_s).join.length < 1)
+      @hoist_width, @fly_length = opts[:aspect_ratio].split(':').map(&:to_f)
     end
 
     if (@image_height.zero?)
@@ -55,11 +55,11 @@ class Vexillogram
   end
 
   def aspect_ratio
-    [aspect_width, aspect_length].join(':')
+    [hoist_width, fly_length].join(':')
   end
 
   def aspect_proportion
-    aspect_width / aspect_length
+    hoist_width / fly_length
   end
 
   def save(filename = nil)
@@ -79,10 +79,10 @@ class Vexillogram
 
   def proportion_to_pixels(proportion_name, proportion_number)
     case proportion_name
-    when :aspect_width
-      (aspect_width / image_height) * (aspect_width * proportion_number)
-    when :aspect_length
-      (aspect_length / image_width) * (aspect_length * proportion_number)
+    when :hoist_width
+      (hoist_width / image_height) * (hoist_width * proportion_number)
+    when :fly_length
+      (fly_length / image_width) * (fly_length * proportion_number)
     end
   end
 
