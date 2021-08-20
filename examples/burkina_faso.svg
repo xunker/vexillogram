@@ -1,16 +1,18 @@
 <?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 
-<svg width="200" height="133.33" 
+<svg width="1000" height="666.67" 
   xmlns="http://www.w3.org/2000/svg"
   xmlns:xlink="http://www.w3.org/1999/xlink">
 
 
-<rect x="0" y="0" width="200" height="133.33" rx="0" style="stroke:black; fill:white"/>
-<rect x="0" y="0.0" width="200" height="66.665" rx="0" fill="red"/>
-<rect x="0" y="66.665" width="200" height="66.665" rx="0" fill="green"/>
-<g transform="translate(68.33333333333334 46.66550000000001)">
-<polygon points="25.0 1.6666250000000002 10.0 29.999250000000004 47.5 9.99975 2.5 9.99975 40.0 29.999250000000004" fill="yellow"/>
+<rect x="0" y="0.0" width="1000" height="333.335" rx="0" fill="red"/>
+<rect x="0" y="333.335" width="1000" height="333.335" rx="0" fill="green"/>
+<g transform="translate(480.1863225771843 322.09859667416777)">
+<g transform="rotate(0 0 0)">
+<polygon points="0.0 -125.0 73.47315653655916 101.12712429686842 -118.8820645368942 -38.6271242968684 118.88206453689418 -38.627124296868466 -73.4731565365591 101.12712429686846" fill="yellow"/>
 </g>
+</g>
+<rect x="0" y="0" width="1000" height="666.67" rx="0" style="stroke:black; fill:; fill-opacity:0"/>
 
 </svg>

@@ -42,17 +42,27 @@ module Vexillogram::Element
     end
 
     def draw(flag)
-      Victor::SVG.new.tap{ |el|
-        el.polygon(
-          points: polygon_points.map{|x,y|
-            [
-              # scaled using image width only so proportion is kept
-              flag.fly_length_to_image_width(x),
-              flag.fly_length_to_image_width(y)
-            ]
-          },
-          fill: @opts[:color]
-        )
+      Victor::SVG.new.tap{ |svg|
+
+        # Hacky way to do start with even number of points
+        # Draw them twice: first time will have half the number of points,
+        # second time will be rotated 180 degrees, e voila!
+        iterations = @opts[:points].even? ? 2 : 1
+        iterations.times do |iteration|
+          svg.g(transform: "rotate(#{180 * iteration} 0 0)") {
+
+            svg.polygon(
+              points: polygon_points.map{|x,y|
+                [
+                  # scaled using image width only so proportion is kept
+                  flag.fly_length_to_image_width(x),
+                  flag.fly_length_to_image_width(y)
+                ]
+              },
+              fill: @opts[:color]
+            )
+          }
+        end
       }
     end
   end

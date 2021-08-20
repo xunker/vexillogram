@@ -5,7 +5,7 @@ require_relative '../lib/vexillogram'
 # Two horizontal bands of red and green with a yellow five-pointed star in the center.
 # Aspect: 2:3
 
-flag = Vexillogram.new('Burkina Faso', image_width: 200) do
+flag = Vexillogram.new('Burkina Faso', image_width: 1000) do
   add(Vexillogram::Element::Field.new {
     [
       Vexillogram::Element::HorizontalBand.new(color: 'red', from: 0, to: 0.5),
@@ -15,7 +15,7 @@ flag = Vexillogram.new('Burkina Faso', image_width: 200) do
 
   add(
     Vexillogram::Element::Charge.new {
-      Vexillogram::Element::Star.new(color: 'yellow', size: 0.25)
+      Vexillogram::Element::Star.new(color: 'yellow', size: 0.25, points: 5)
     }
   )
 end
