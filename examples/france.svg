@@ -1,0 +1,14 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="200" height="133.33" 
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+
+
+<rect x="0" y="0" width="200" height="133.33" rx="0" style="stroke:black; fill:white"/>
+<rect x="0" y="0" width="66.0" height="133.33" rx="0" fill="blue"/>
+<rect x="66.0" y="0" width="66.0" height="133.33" rx="0" fill="white"/>
+<rect x="132.0" y="0" width="68.0" height="133.33" rx="0" fill="red"/>
+
+</svg>

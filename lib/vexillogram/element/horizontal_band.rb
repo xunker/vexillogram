@@ -14,9 +14,9 @@ module Vexillogram::Element
         el.element(
           :rect,
           x: 0,
-          y: flag.image_height*@opts[:from],
-          width: flag.image_width,
-          height: flag.image_height*@opts[:to] - flag.image_height*@opts[:from],
+          y: flag.hoist_width_to_image_height(@opts[:from]),
+          width: flag.fly_length_to_image_width(1),
+          height: flag.hoist_width_to_image_height(@opts[:to]) - flag.hoist_width_to_image_height(@opts[:from]),
           rx: 0, fill: @opts[:color])
       }
     end

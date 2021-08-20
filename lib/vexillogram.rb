@@ -62,6 +62,14 @@ class Vexillogram
     hoist_width / fly_length
   end
 
+  def fly_length_to_image_width(fl)
+    image_width * fl
+  end
+
+  def hoist_width_to_image_height(hw)
+    image_height * hw
+  end
+
   def save(filename = nil)
     # @svg = Victor::SVG.new width: @image_width, height: @image_height, style: { background: field }
     @svg = Victor::SVG.new width: @image_width, height: @image_height
@@ -75,15 +83,6 @@ class Vexillogram
 
     filename ||= [name, :svg].join('.').gsub(/\s+/, '_').downcase
     @svg.save(filename)
-  end
-
-  def proportion_to_pixels(proportion_name, proportion_number)
-    case proportion_name
-    when :hoist_width
-      (hoist_width / image_height) * (hoist_width * proportion_number)
-    when :fly_length
-      (fly_length / image_width) * (fly_length * proportion_number)
-    end
   end
 
   def add(element)
