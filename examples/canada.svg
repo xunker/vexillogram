@@ -1,0 +1,16 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="200" height="100.0" view-box="0 0 9600 4800" 
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+
+
+<rect x="0" y="0.0" width="200" height="100.0" rx="0" fill="red"/>
+<rect x="50.0" y="0" width="100.0" height="100.0" rx="0" fill="white"/>
+<g transform="translate(100.0 50.0)">
+<path fill="red" d="m-1.8 40.6 0.9-17.26a1.9 1.9 0 0 0-2.22-1.96l-17.18 3.02 2.32-6.4a1.3 1.3 0 0 0-0.4-1.46l-18.82-15.24 4.24-1.98a1.3 1.3 0 0 0 0.68-1.58l-3.72-11.44 10.84 2.3a1.3 1.3 0 0 0 1.46-0.76l2.1-4.94 8.46 9.08a1.3 1.3 0 0 0 2.22-1.14l-4.08-21.04 6.54 3.78a1.3 1.3 0 0 0 1.82-0.54l6.64-13.04 6.64 13.04a1.3 1.3 0 0 0 1.82 0.54l6.54-3.78-4.08 21.04a1.3 1.3 0 0 0 2.22 1.14l8.46-9.08 2.1 4.94a1.3 1.3 0 0 0 1.46 0.76l10.84-2.3-3.72 11.44a1.3 1.3 0 0 0 0.68 1.58l4.24 1.98-18.82 15.24a1.3 1.3 0 0 0-0.4 1.46l2.32 6.4-17.18-3.02a1.9 1.9 0 0 0-2.22 1.96l0.9 17.26z"/>
+</g>
+<rect x="0" y="0" width="200" height="100.0" rx="0" style="stroke:black; fill:; fill-opacity:0"/>
+
+</svg>
