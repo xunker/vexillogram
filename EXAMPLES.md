@@ -36,6 +36,9 @@ https://drawshield.net/create/
 * Pall
   - An example of a pall placed horizontally (fesswise) is the green portion of the South African national flag.
 * Saltire
+* Defacement
+  - Defacement, in heraldry and vexillology, is the addition of a symbol or charge to another flag
+  - For our purposes, can be a synonym for Charge
 
 # --- test exmples
 

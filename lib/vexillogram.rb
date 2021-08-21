@@ -17,7 +17,9 @@ require_relative 'vexillogram/element/canton'
 require_relative 'vexillogram/element/charge'
 require_relative 'vexillogram/element/field'
 require_relative 'vexillogram/element/horizontal_band'
+require_relative 'vexillogram/element/maple_leaf'
 require_relative 'vexillogram/element/nordic_cross'
+require_relative 'vexillogram/element/pale'
 require_relative 'vexillogram/element/star'
 require_relative 'vexillogram/element/vertical_band'
 
@@ -73,7 +75,7 @@ class Vexillogram
 
   def save(filename = nil)
     # @svg = Victor::SVG.new width: @image_width, height: @image_height, style: { background: field }
-    @svg = Victor::SVG.new width: @image_width, height: @image_height
+    @svg = Victor::SVG.new width: @image_width, height: @image_height, view_box: "0 0 9600 4800"
 
 
 

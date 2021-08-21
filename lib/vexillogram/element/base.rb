@@ -1,7 +1,7 @@
 module Vexillogram::Element
   class Base
     def initialize(opts = {}, &blk)
-      @opts = (@defaults || {}).merge(color: '#fff').merge(opts)
+      @opts = {color: '#fff'}.merge(@defaults || {}).merge(opts)
     end
   end
 end
