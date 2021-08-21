@@ -65,6 +65,54 @@ After checking out the repo, run `bin/setup` to install dependencies. Then, run 
 
 To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
+## To-Do
+
+The to-do list is long and will probably always be, as long as humans keep using flags.
+
+### Elements
+
+* Border/bordure
+* Canton
+  - File present but not tested
+* Impale/Impaled
+  1. (v) In heraldry a term for the marshalling of (or having earlier marshalled) two sets of arms side-by-side on a shield or banner of arms to indicate marriage or alliance – empale (see also ‘banner of arms’, ‘coat of arms 2)’, ‘dimidiated’, ‘entire 1)’, ‘escutcheon of pretence 2), ‘marshalling’, ‘point-in-point’, ‘quarter the arms’ and ‘quartering 1)’)
+  2. (v) On flags as above, but the images placed on a flag need not be arms as defined herein.
+* Quadrisection
+  - aka Quartering
+* Greek Cross (Switzerland)
+* Symmetric cross
+* Fess
+* Bend
+* Chevron
+* Pall
+* Saltire
+
+* Patterns within an element to use with or instead of a colour (see https://en.wikipedia.org/wiki/Variation_of_the_field)
+  * option to specify external file to use as pattern
+
+* Text Element
+
+* "Placeholder" element
+  - an enclosed primitive (rect, circle, poly) that contains text. The text names the Element that would be here if available
+  - Example: Utah state flag, the Great Seal replaced placeholder of aproximate size and colour with text that reads "GREAT SEAL OF UTAH"
+  - Clip the text to bounds of the placeholder
+
+* Colours: Augment the existing color lookup system to accept standard heraldic colour names
+    - Metals: Argent (Silver/White), Or (Gold/Yellow), Copper, Buff (light brownish-yellow, typical of buff leather, treated as metal in USA)
+    - Colours: Gules (red), Sable (black), Azure (blue), Vert (green), Purpure (purple)
+    - Non-traditional Colours: Bleu celeste (Sky Blue Bleu de Ciel), Brunâtre (brown), Buff (light brownish-yellow, typical of buff leather, treated as color in Canada), Carnation (pale or white human skin), Cendrée (Cinder, Ash Grey), Ochre (both red and yellow), Orange (different from Tenné), Rose (pink)
+    - Furs: Ermines (Erminois, Erminites, Pean), Vair (Potent)
+    - Stains: Murrey (mulberry), Sanguine (blood red), Tenné (Orange/Light Brown/Tawny Orange)
+### Core
+
+* A json format to represent the description of a flag, like the Ruby code but language-agnostic
+  - A parser, to generate an SVG from a json description
+  - A generator, to output a json description from the given Ruby code
+* Decouple the SVG drawing from Elements and main code
+  - Have Elements return POROs of basic primitives (rect, poly, circle, path, etc)
+  - Those primitives are them fed to a renderer that reads the and translates them to SVG
+  - This allows the Elements to be completely unaware of the dimensions of the output image
+
 ## Contributing
 
 Contributions of code **and** knowledge are welcome. There are many vexillographic conventions and terms that are still not universally agreed upon and civil discussion of the best way to handle these cases is always helpful.

@@ -25,7 +25,11 @@ https://drawshield.net/create/
 
 * Border/bordure
 * Canton
+* Impale/Impaled
+  1. (v) In heraldry a term for the marshalling of (or having earlier marshalled) two sets of arms side-by-side on a shield or banner of arms to indicate marriage or alliance – empale (see also ‘banner of arms’, ‘coat of arms 2)’, ‘dimidiated’, ‘entire 1)’, ‘escutcheon of pretence 2), ‘marshalling’, ‘point-in-point’, ‘quarter the arms’ and ‘quartering 1)’)
+  2. (v) On flags as above, but the images placed on a flag need not be arms as defined herein.
 * Quadrisection
+  - aka Quartering
 * Greek Cross (Switzerland)
 * Symmetric cross
 * Nordic Cross
