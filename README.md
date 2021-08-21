@@ -68,7 +68,6 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 ## To-Do
 
 The to-do list is long and will probably always be, as long as humans keep using flags.
-
 ### Elements
 
 * Border/bordure
@@ -82,27 +81,23 @@ The to-do list is long and will probably always be, as long as humans keep using
 * Greek Cross (Switzerland)
 * Symmetric cross
 * Fess
-* Bend
-* Chevron
+* Bend / Bend Sinister
+* Chevron / Chevron Reversed / Chevron Arched or Enarched
 * Pall
 * Saltire
-
-* Patterns within an element to use with or instead of a colour (see https://en.wikipedia.org/wiki/Variation_of_the_field)
-  * option to specify external file to use as pattern
-
 * Text Element
-
 * "Placeholder" element
   - an enclosed primitive (rect, circle, poly) that contains text. The text names the Element that would be here if available
   - Example: Utah state flag, the Great Seal replaced placeholder of aproximate size and colour with text that reads "GREAT SEAL OF UTAH"
   - Clip the text to bounds of the placeholder
 
-* Colours: Augment the existing color lookup system to accept standard heraldic colour names
-    - Metals: Argent (Silver/White), Or (Gold/Yellow), Copper, Buff (light brownish-yellow, typical of buff leather, treated as metal in USA)
-    - Colours: Gules (red), Sable (black), Azure (blue), Vert (green), Purpure (purple)
-    - Non-traditional Colours: Bleu celeste (Sky Blue Bleu de Ciel), Brunâtre (brown), Buff (light brownish-yellow, typical of buff leather, treated as color in Canada), Carnation (pale or white human skin), Cendrée (Cinder, Ash Grey), Ochre (both red and yellow), Orange (different from Tenné), Rose (pink)
-    - Furs: Ermines (Erminois, Erminites, Pean), Vair (Potent)
-    - Stains: Murrey (mulberry), Sanguine (blood red), Tenné (Orange/Light Brown/Tawny Orange)
+### Arrangements of Charges
+* Per Fess
+* Per Pale
+* Per Pall
+* Per Saltire
+  * two separate objects or charges are placed across each other diagonally on a flag, shield or banner of arms - saltirewise, in_saltire
+
 ### Core
 
 * A json format to represent the description of a flag, like the Ruby code but language-agnostic
@@ -112,6 +107,18 @@ The to-do list is long and will probably always be, as long as humans keep using
   - Have Elements return POROs of basic primitives (rect, poly, circle, path, etc)
   - Those primitives are them fed to a renderer that reads the and translates them to SVG
   - This allows the Elements to be completely unaware of the dimensions of the output image
+* Colours: Augment the existing color lookup system to accept standard heraldic colour names
+  - Metals: Argent (Silver/White), Or (Gold/Yellow), Copper, Buff (light brownish-yellow, typical of buff leather, treated as metal in USA)
+  - Colours: Gules (red), Sable (black), Azure (blue), Vert (green), Purpure (purple)
+  - Non-traditional Colours: Bleu celeste (Sky Blue Bleu de Ciel), Brunâtre (brown), Buff (light brownish-yellow, typical of buff leather, treated as color in Canada), Carnation (pale or white human skin), Cendrée (Cinder, Ash Grey), Ochre (both red and yellow), Orange (different from Tenné), Rose (pink)
+  - Furs: Ermines (Erminois, Erminites, Pean), Vair (Potent)
+  - Stains: Murrey (mulberry), Sanguine (blood red), Tenné (Orange/Light Brown/Tawny Orange)
+* Patterns within an element to use with or instead of a colour (see https://en.wikipedia.org/wiki/Variation_of_the_field)
+  * option to specify external file to use as pattern
+* Shapes/Aspect Ratios
+  - Nepal
+  - Inclined-Fly
+  - Pennon/Pennant, Swallow-tail, etc
 
 ## Contributing
 

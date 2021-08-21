@@ -18,11 +18,11 @@ module Vexillogram::Element
     end
 
     def width
-      1
+      0
     end
 
     def height
-      1
+      0
     end
 
     # expecting a string that looks like "nn:nn:nn", ex: "2:2:8"
@@ -43,8 +43,8 @@ module Vexillogram::Element
         # vertical
         svg.element(
           :rect,
-          x: 0,
-          y: flag.hoist_width_to_image_height(@opts[:vertical][0]),
+          x: -flag.fly_length_to_image_width(0.5),
+          y: -flag.hoist_width_to_image_height(@opts[:vertical][0]/4),
           width: flag.fly_length_to_image_width(1),
           height: flag.hoist_width_to_image_height(@opts[:vertical][1]),
           rx: 0, fill: @opts[:color]
@@ -53,8 +53,8 @@ module Vexillogram::Element
         # horizontal
         svg.element(
           :rect,
-          x: flag.fly_length_to_image_width(@opts[:horizontal][0]),
-          y: 0,
+          x: -flag.fly_length_to_image_width(@opts[:horizontal][0]/2),
+          y: -flag.hoist_width_to_image_height(0.5),
           width: flag.fly_length_to_image_width(@opts[:horizontal][1]),
           height: flag.hoist_width_to_image_height(1),
           rx: 0, fill: @opts[:color]

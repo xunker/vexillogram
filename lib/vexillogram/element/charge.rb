@@ -26,7 +26,7 @@ module Vexillogram::Element
       total_width_of_elements = 0 # set by horizontal arrangement
       total_height_of_elements = 0 # set by vertical arrangement
 
-      if @elements.length > 1
+      # if @elements.length > 1
         raise 'Vertical Charge arrangement not yet implemented' if vertical?
 
         if horizontal?
@@ -35,19 +35,19 @@ module Vexillogram::Element
           total_width_of_elements = total_width_of_elements.to_f + @elements.first.width/2
           total_width_of_elements = total_width_of_elements.to_f + @elements.last.width/2
         end
-      end
+      # end
 
       Victor::SVG.new.tap {|svg|
         x_translation = flag.image_width.to_f/2
         y_translation = flag.image_height.to_f/2
 
-        if @elements.length > 1
+        # if @elements.length > 1
           raise 'Vertical Charge arrangement not yet implemented' if vertical?
 
           if horizontal?
             x_translation -= flag.fly_length_to_image_width(total_width_of_elements)/2
           end
-        end
+        # end
 
         @elements.each_with_index.map do |element, idx|
           group_el = svg.build do
