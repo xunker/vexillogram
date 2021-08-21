@@ -12,18 +12,8 @@ module Vexillogram::Element
       Victor::SVG.new.tap {|svg|
         @elements.map do |element|
           svg.build do
-            x_translation = 0
-            y_translation = 0
-
-            if element.width != 1.0
-              centre_x = ((flag.image_width*flag.aspect_proportion)*(element.width))
-              x_translation = (flag.image_width/2)-centre_x
-            end
-
-            if element.height != 1.0
-              centre_y = ((flag.image_height*flag.aspect_proportion)*(element.height))
-              y_translation = (flag.image_height/2)-centre_y
-            end
+            x_translation = flag.image_width.to_f/2
+            y_translation = flag.image_height.to_f/2
 
             g(transform: "translate(#{x_translation} #{y_translation})") {
               append element.draw(flag)
