@@ -21,12 +21,26 @@ module Vexillogram::Element
     end
 
     def width
-      # 0
-      polygon_points.map(&:first).max.abs + polygon_points.map(&:first).min.abs
+      [min_x, max_x].map(&:abs).inject(:+)
     end
 
     def height
-      # 0
+      [min_y, max_y].map(&:abs).inject(:+)
+    end
+
+    def min_x
+      polygon_points.map(&:first).min
+    end
+
+    def max_x
+      polygon_points.map(&:first).max
+    end
+
+    def min_y
+      polygon_points.map(&:last).min
+    end
+
+    def max_y
       polygon_points.map(&:last).max
     end
 
@@ -51,6 +65,17 @@ module Vexillogram::Element
           },
           fill: @opts[:color]
         )
+
+        if @opts[:show_bounds]
+          svg.rect(
+            x: flag.fly_length_to_image_width(min_x),
+            y: flag.hoist_width_to_image_height(min_y),
+            width: flag.fly_length_to_image_width(width),
+            height: flag.hoist_width_to_image_height(height),
+            rx: 0,
+            style: { stroke: 'black', fill: nil, fill_opacity: 0 }
+          )
+        end
       }
     end
 

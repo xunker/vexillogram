@@ -1,7 +1,13 @@
 module Vexillogram::Element
   class Charge < Base
+    ARRANGEMENT_SYNONYMS = [
+      %i[vertical vertically in_pale palewise per_pale],
+      %i[horizontal horizontally in_fess fesswise per_fess],
+    ]
     def initialize(opts = {}, &blk)
-      @defaults = { }
+      @defaults = {
+        arrangement: :horizontal
+      }
       super
 
       @elements = []
