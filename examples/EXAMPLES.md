@@ -20,6 +20,11 @@
 [![Rendered Flag of France](france.svg)](france.rb)
 
 -----
+### [Japan](japan.rb)
+
+[![Rendered Flag of Japan](japan.svg)](japan.rb)
+
+-----
 ### [Sweden](sweden.rb)
 
 [![Rendered Flag of Sweden](sweden.svg)](sweden.rb)
