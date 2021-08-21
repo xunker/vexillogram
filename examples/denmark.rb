@@ -9,9 +9,7 @@ flag = Vexillogram.new('Denmark', aspect_ratio: '14:17') do
   add(Vexillogram::Element::Field.new(color: 'red'))
 
   add(
-    Vexillogram::Element::Charge.new {
-      Vexillogram::Element::NordicCross.new(color: 'white', horizontal: '3:1:4.5', vertical: '3:1:3')
-    }
+    Vexillogram::Element::NordicCross.new(color: 'white', horizontal: '3:1:4.5', vertical: '3:1:3')
   )
 end
 
