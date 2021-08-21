@@ -77,7 +77,7 @@ class Vexillogram
 
   def save(filename = nil)
     # @svg = Victor::SVG.new width: @image_width, height: @image_height, style: { background: field }
-    @svg = Victor::SVG.new width: @image_width, height: @image_height, view_box: "0 0 9600 4800"
+    @svg = Victor::SVG.new width: @image_width, height: @image_height
 
 
 
@@ -94,8 +94,8 @@ class Vexillogram
     @svg.save(filename)
   end
 
-  def add(element)
-    @elements << element
+  def add(*elements)
+    @elements += Array(elements).flatten
   end
 
   def field(color = nil, opts = {})

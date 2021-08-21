@@ -5,7 +5,7 @@ module Vexillogram::Element
       super
 
       @elements = []
-      @elements += Array(instance_eval(&blk)).flatten
+      @elements += Array(instance_eval(&blk)).flatten if block_given?
     end
 
     def draw(flag)
