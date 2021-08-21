@@ -10,6 +10,11 @@
 [![Rendered Flag of Canada](canada.svg)](canada.rb)
 
 -----
+### [Chicago](chicago.rb)
+
+[![Rendered Flag of Chicago](chicago.svg)](chicago.rb)
+
+-----
 ### [Denmark](denmark.rb)
 
 [![Rendered Flag of Denmark](denmark.svg)](denmark.rb)

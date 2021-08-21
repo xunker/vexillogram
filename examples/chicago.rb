@@ -66,7 +66,10 @@ flag = Vexillogram.new('Chicago', image_width: 200, aspect_ratio: '2:3') do
   add(
     Vexillogram::Element::Charge.new(arrangement: :in_fess) {
       [
-        Vexillogram::Element::Star.new(color: :red, points: 6, size: 0.3, relative_to: :hoist_width, show_bounds: true)
+        Vexillogram::Element::Star.new(color: :red, points: 6, size: 0.25, relative_to: :hoist_width),
+        Vexillogram::Element::Star.new(color: :red, points: 6, size: 0.25, relative_to: :hoist_width),
+        Vexillogram::Element::Star.new(color: :red, points: 6, size: 0.25, relative_to: :hoist_width),
+        Vexillogram::Element::Star.new(color: :red, points: 6, size: 0.25, relative_to: :hoist_width)
       ]
     }
   )

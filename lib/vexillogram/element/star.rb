@@ -21,11 +21,11 @@ module Vexillogram::Element
     end
 
     def width
-      [min_x, max_x].map(&:abs).inject(:+)
+      max_x - min_x
     end
 
     def height
-      [min_y, max_y].map(&:abs).inject(:+)
+      max_y - min_y
     end
 
     def min_x
