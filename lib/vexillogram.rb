@@ -7,26 +7,14 @@
 module Vexillogram::Element
 end
 
-require_relative "vexillogram/version"
-
 require 'victor'
 
-# require base element first before other elements
-require_relative 'vexillogram/element/base'
-require_relative 'vexillogram/element/canton'
-require_relative 'vexillogram/element/charge'
-require_relative 'vexillogram/element/defacement'
-require_relative 'vexillogram/element/disc'
-require_relative 'vexillogram/element/field'
-require_relative 'vexillogram/element/horizontal_band'
-require_relative 'vexillogram/element/maple_leaf'
-require_relative 'vexillogram/element/nordic_cross'
-require_relative 'vexillogram/element/pale'
-require_relative 'vexillogram/element/star'
-require_relative 'vexillogram/element/vertical_band'
+require_relative "vexillogram/version"
+require_relative 'vexillogram/element'
+require_relative 'vexillogram/primitive'
 
 class Vexillogram
-  attr_accessor :name, :image_width, :image_height, :hoist_width, :fly_length, :field, :elements, :svg
+  attr_accessor :name, :image_width, :image_height, :hoist_width, :fly_length, :field, :elements
 
   def initialize(name = nil, opts = {}, &blk)
     @opts = {
@@ -83,11 +71,18 @@ class Vexillogram
 
     @elements.each do |element|
       # instance_eval(&element.draw)
-      svg << element.draw(self)
+      # @svg << element.draw(self)
+      primitives = Array(element.primitives).flatten
+
+      @svg << Victor::SVG.new.tap {|svg_partial|
+        primitives.each do |primitive|
+          svg_partial.element primitive.svg_shape, primitive.svg_attributes(self)
+        end
+      }
     end
 
     if @opts.fetch(:border)
-      svg.rect x: 0, y: 0, width: image_width, height: image_height, rx: 0, style: { stroke: 'black', fill: nil, fill_opacity: 0 }
+      @svg.rect x: 0, y: 0, width: image_width, height: image_height, rx: 0, style: { stroke: 'black', fill: nil, fill_opacity: 0 }
     end
 
     filename ||= [name, :svg].join('.').gsub(/\s+/, '_').downcase

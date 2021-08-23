@@ -22,6 +22,18 @@ module Vexillogram::Element
       ARRANGEMENT_SYNONYMS[:vertical].include? @opts[:arrangement]
     end
 
+    def width
+      1
+    end
+
+    def height
+      1
+    end
+
+    def primitives
+      @elements.map(&:primitives)
+    end
+
     def draw(flag)
       total_width_of_elements = 0 # set by horizontal arrangement
       total_height_of_elements = 0 # set by vertical arrangement

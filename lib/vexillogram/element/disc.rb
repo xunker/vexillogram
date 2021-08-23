@@ -14,24 +14,20 @@ module Vexillogram::Element
     end
 
     def width
-      0.00 # ensure centered when charged/defaced
+      radius
     end
 
     def height
-      0.00 # ensure centered when charged/defaced
+      radius
     end
 
-    def draw(flag)
-      radius = case @opts.fetch(:relative_to)
-        when :hoist_width, :hoist
-          flag.hoist_width_to_image_height(@opts.fetch(:radius))
-        else
-          flag.fly_length_to_image_width(@opts.fetch(:radius))
-        end
-
-      Victor::SVG.new.tap {|svg|
-        svg.circle(cx: 0, cy: 0, r: radius, fill: @opts.fetch(:color))
-      }
+    def primitives
+      Vexillogram::Primitive::Circle.new(
+        color: @opts.fetch(:color),
+        cx: 0,
+        cy: 0,
+        radius: @opts.fetch(:radius)
+      )
     end
   end
 end
