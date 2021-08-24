@@ -10,20 +10,21 @@ module Vexillogram::Element
     end
 
     def width
-      1
+      opts.fetch(:to) - opts.fetch(:from)
     end
 
     def height
-      opts.fetch(:to) - opts.fetch(:from)
+      1
     end
 
     def primitives
       Vexillogram::Primitive::Rect.new(
-        color: @opts[:color],
-        x: @opts[:from],
-        y: 0,
-        width: @opts[:to] - @opts[:from],
-        height: 1
+        build_primitive_attributes(
+          x: @opts[:from],
+          y: 0,
+          width: @opts[:to] - @opts[:from],
+          height: 1
+        )
       )
     end
   end

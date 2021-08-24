@@ -10,11 +10,10 @@ module Vexillogram::Primitive
     end
 
     def svg_attributes(flag)
-      {
-        fill: @opts.fetch(:color),
-        d: @opts.fetch(:d),
-        transform: transform(flag)
-      }
+      build_svg_attributes(
+        flag,
+        d: @opts.fetch(:d)
+      )
     end
 
     def svg_shape

@@ -44,40 +44,49 @@ module Vexillogram::Element
       polygon_points.map(&:last).max
     end
 
-    def draw(flag)
-
-      Victor::SVG.new.tap{ |svg|
-        svg.polygon(
-          points: polygon_points.map{|x,y|
-            # scaled using image width or image height alone so proportion is kept
-            case @opts.fetch(:relative_to)
-              when :hoist_width, :hoist
-                [
-                  flag.hoist_width_to_image_height(x),
-                  flag.hoist_width_to_image_height(y)
-                ]
-              else
-                [
-                  flag.fly_length_to_image_width(x),
-                  flag.fly_length_to_image_width(y)
-                ]
-              end
-          },
-          fill: @opts[:color]
+    def primitives
+      Vexillogram::Primitive::Polygon.new(
+        build_primitive_attributes(
+          points: polygon_points
         )
+      )
 
-        if @opts[:show_bounds]
-          svg.rect(
-            x: flag.fly_length_to_image_width(min_x),
-            y: flag.hoist_width_to_image_height(min_y),
-            width: flag.fly_length_to_image_width(width),
-            height: flag.hoist_width_to_image_height(height),
-            rx: 0,
-            style: { stroke: 'black', fill: nil, fill_opacity: 0 }
-          )
-        end
-      }
     end
+
+    # def draw(flag)
+
+    #   Victor::SVG.new.tap{ |svg|
+    #     svg.polygon(
+    #       points: polygon_points.map{|x,y|
+    #         # scaled using image width or image height alone so proportion is kept
+    #         case @opts.fetch(:relative_to)
+    #           when :hoist_width, :hoist
+    #             [
+    #               flag.hoist_width_to_image_height(x),
+    #               flag.hoist_width_to_image_height(y)
+    #             ]
+    #           else
+    #             [
+    #               flag.fly_length_to_image_width(x),
+    #               flag.fly_length_to_image_width(y)
+    #             ]
+    #           end
+    #       },
+    #       fill: @opts[:color]
+    #     )
+
+    #     if @opts[:show_bounds]
+    #       svg.rect(
+    #         x: flag.fly_length_to_image_width(min_x),
+    #         y: flag.hoist_width_to_image_height(min_y),
+    #         width: flag.fly_length_to_image_width(width),
+    #         height: flag.hoist_width_to_image_height(height),
+    #         rx: 0,
+    #         style: { stroke: 'black', fill: nil, fill_opacity: 0 }
+    #       )
+    #     end
+    #   }
+    # end
 
     private
 

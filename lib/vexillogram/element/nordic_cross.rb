@@ -18,11 +18,32 @@ module Vexillogram::Element
     end
 
     def width
-      0
+      1
     end
 
     def height
-      0
+      1
+    end
+
+    def primitives
+      [
+        Vexillogram::Primitive::Rect.new(
+          build_primitive_attributes(
+            x: 0,
+            y: @opts[:vertical][0],
+            width: 1,
+            height: @opts[:vertical][1]
+          )
+        ),
+        Vexillogram::Primitive::Rect.new(
+          build_primitive_attributes(
+            x: @opts[:horizontal][0],
+            y: 0,
+            width: @opts[:horizontal][1],
+            height: 1
+          )
+        )
+      ]
     end
 
     # expecting a string that looks like "nn:nn:nn", ex: "2:2:8"
@@ -38,29 +59,29 @@ module Vexillogram::Element
       proportions.map{|p| p.to_f / total.to_f}
     end
 
-    def draw(flag)
-      Victor::SVG.new.tap{ |svg|
-        # vertical
-        svg.element(
-          :rect,
-          x: -flag.fly_length_to_image_width(0.5),
-          y: -flag.hoist_width_to_image_height(@opts[:vertical][0]/4),
-          width: flag.fly_length_to_image_width(1),
-          height: flag.hoist_width_to_image_height(@opts[:vertical][1]),
-          rx: 0, fill: @opts[:color]
-        )
+    # def draw(flag)
+    #   Victor::SVG.new.tap{ |svg|
+    #     # vertical
+    #     svg.element(
+    #       :rect,
+    #       x: -flag.fly_length_to_image_width(0.5),
+    #       y: -flag.hoist_width_to_image_height(@opts[:vertical][0]/4),
+    #       width: flag.fly_length_to_image_width(1),
+    #       height: flag.hoist_width_to_image_height(@opts[:vertical][1]),
+    #       rx: 0, fill: @opts[:color]
+    #     )
 
-        # horizontal
-        svg.element(
-          :rect,
-          x: -flag.fly_length_to_image_width(@opts[:horizontal][0]/2),
-          y: -flag.hoist_width_to_image_height(0.5),
-          width: flag.fly_length_to_image_width(@opts[:horizontal][1]),
-          height: flag.hoist_width_to_image_height(1),
-          rx: 0, fill: @opts[:color]
-        )
+    #     # horizontal
+    #     svg.element(
+    #       :rect,
+    #       x: -flag.fly_length_to_image_width(@opts[:horizontal][0]/2),
+    #       y: -flag.hoist_width_to_image_height(0.5),
+    #       width: flag.fly_length_to_image_width(@opts[:horizontal][1]),
+    #       height: flag.hoist_width_to_image_height(1),
+    #       rx: 0, fill: @opts[:color]
+    #     )
 
-      }
-    end
+    #   }
+    # end
   end
 end

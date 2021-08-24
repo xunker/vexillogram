@@ -11,14 +11,32 @@ module Vexillogram::Element
       super
 
       @elements = []
-      # @elements += Array(instance_eval(&blk)).flatten if block_given?
-      if block_given?
-        Array(instance_eval(&blk)).flatten.each do |element|
-          # centre symetric elements
-          element.translate_x = 0.5 if (element.x_origin.zero?)
-          element.translate_y = 0.5 if (element.y_origin.zero?)
+      @elements += Array(instance_eval(&blk)).flatten if block_given?
 
-          @elements << element
+      if @elements.length == 1
+        @elements.last.translate_x = 0.5
+        @elements.last.translate_y = 0.5
+      else
+        # get width of middle elements, and half the width of the first and last
+        total_width_of_elements = (@elements[1..-2].map(&:width) + [@elements.first, @elements.last].map{|e| e.width/2}).inject(:+)
+
+        initial_x_offset = (1.0 - total_width_of_elements)/2
+
+        @elements.each_with_index do |element, idx|
+          # centre symetric elements
+          raise 'Vertical Charge arrangement not yet implemented' if vertical?
+
+          if horizontal?
+            element.translate_x = (initial_x_offset) + (element.width*(idx))
+            element.translate_y = 0.5
+          end
+
+          if vertical?
+            raise 'vertical charge arrangement not yet implemented'
+          end
+
+          # @elements.last.translate_x = 0.5 if (@elements.last.x_origin.zero?)
+          # @elements.last.translate_y = 0.5 if (@elements.last.y_origin.zero?)
         end
       end
     end

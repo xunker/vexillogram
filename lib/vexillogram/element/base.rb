@@ -9,6 +9,15 @@ module Vexillogram::Element
       }.merge(@defaults || {}).merge(opts)
     end
 
+    def build_primitive_attributes(opts = {})
+      {
+        color: @opts.fetch(:color),
+        show_bounds: @opts.fetch(:show_bounds),
+        translate_x: translate_x,
+        translate_y: translate_y
+      }.merge(opts)
+    end
+
     def translate_x
       @opts.fetch(:translate_x)
     end

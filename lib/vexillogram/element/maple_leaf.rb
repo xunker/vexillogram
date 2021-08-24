@@ -22,32 +22,31 @@ module Vexillogram::Element
 
     def primitives
       Vexillogram::Primitive::Path.new(
-        color: @opts.fetch(:color),
-        d: SVG_PATH.gsub(/\d+/){|x|
-          # Here we do some really hacky scaling around the SVG path to make it resize
-          # properly when the image output sizes changes.
-          x = ((x.to_f / 100) * @opts[:size]).round(4)
-          x = "0" if x.zero?
-          x
-        },
-        translate_x: translate_x,
-        translate_y: translate_y
-      )
-    end
-
-    def draw(flag)
-      Victor::SVG.new.tap{ |svg|
-        svg.path(
-          fill: @opts.fetch(:color),
+        build_primitive_attributes(
           d: SVG_PATH.gsub(/\d+/){|x|
             # Here we do some really hacky scaling around the SVG path to make it resize
             # properly when the image output sizes changes.
-            x = ((x.to_f * flag.fly_length_to_image_width(0.0001)) * @opts[:size]).round(4)
+            x = ((x.to_f / 30) * @opts[:size]).round(4) # divisor of 30 is the magic number
             x = "0" if x.zero?
             x
           }
         )
-      }
+      )
     end
+
+    # def draw(flag)
+    #   Victor::SVG.new.tap{ |svg|
+    #     svg.path(
+    #       fill: @opts.fetch(:color),
+    #       d: SVG_PATH.gsub(/\d+/){|x|
+    #         # Here we do some really hacky scaling around the SVG path to make it resize
+    #         # properly when the image output sizes changes.
+    #         x = ((x.to_f * flag.fly_length_to_image_width(0.0001)) * @opts[:size]).round(4)
+    #         x = "0" if x.zero?
+    #         x
+    #       }
+    #     )
+    #   }
+    # end
   end
 end

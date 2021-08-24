@@ -26,25 +26,36 @@ module Vexillogram::Element
     end
 
     def width
-      1
+      @opts[:vertical][1]
     end
 
     def height
       1
     end
 
-    def draw(flag)
-      Victor::SVG.new.tap{ |svg|
-        svg.element(
-          :rect,
-          x: flag.fly_length_to_image_width(@opts[:vertical][0]),
+    def primitives
+      Vexillogram::Primitive::Rect.new(
+        build_primitive_attributes(
+          x: @opts[:vertical][0],
           y: 0,
-          width: flag.fly_length_to_image_width(@opts[:vertical][1]),
-          height: flag.hoist_width_to_image_height(1),
-          rx: 0, fill: @opts[:color]
+          width: @opts[:vertical][1],
+          height: 1
         )
-
-      }
+      )
     end
+
+    # def draw(flag)
+    #   Victor::SVG.new.tap{ |svg|
+    #     svg.element(
+    #       :rect,
+    #       x: flag.fly_length_to_image_width(@opts[:vertical][0]),
+    #       y: 0,
+    #       width: flag.fly_length_to_image_width(@opts[:vertical][1]),
+    #       height: flag.hoist_width_to_image_height(1),
+    #       rx: 0, fill: @opts[:color]
+    #     )
+
+    #   }
+    # end
   end
 end

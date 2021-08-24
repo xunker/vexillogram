@@ -6,10 +6,9 @@
   xmlns:xlink="http://www.w3.org/1999/xlink">
 
 
-<rect x="0" y="0.0" width="200" height="133.33" rx="0" fill="white"/>
-<g transform="translate(100.0 66.665)">
-<circle cx="0" cy="0" r="39.999" fill="red"/>
-</g>
+<rect fill="white" stroke="" x="0" y="0.0" width="200" height="133.33" rx="0"/>
+<rect fill="white" stroke="" x="0" y="0.0" width="200" height="133.33" rx="0"/>
+<circle fill="red" stroke="" cx="0" cy="0.0" r="39.999" transform="translate(100.0 66.665)"/>
 <rect x="0" y="0" width="200" height="133.33" rx="0" style="stroke:black; fill:; fill-opacity:0"/>
 
 </svg>

@@ -28,7 +28,7 @@ flag = Vexillogram.new('Canada', image_width: 200, aspect_ratio: '1:2') do
   add(
     # Defacement uses same code as Charge, different is purely linguistic
     Vexillogram::Element::Defacement.new {
-      Vexillogram::Element::MapleLeaf.new
+      Vexillogram::Element::MapleLeaf.new(size: 0.6)
     }
   )
 end

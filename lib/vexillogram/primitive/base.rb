@@ -7,6 +7,13 @@ module Vexillogram::Primitive
       }.merge(@defaults || {}).merge(opts)
     end
 
+    def build_svg_attributes(flag, opts = {})
+      {
+        fill: @opts.fetch(:color),
+        transform: transform(flag)
+      }.merge(opts)
+    end
+
     def transform(flag)
       return unless [@opts[:translate_x], @opts[:translate_y]].any?(&:positive?)
       "translate(#{flag.fly_length_to_image_width(@opts[:translate_x])} #{flag.hoist_width_to_image_height(@opts[:translate_y])})"

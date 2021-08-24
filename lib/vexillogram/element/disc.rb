@@ -3,7 +3,9 @@ module Vexillogram::Element
     def initialize(opts = {}, &blk)
       @defaults = {
         radius: 0.25,
-        relative_to: :hoist_width
+        relative_to: :hoist_width,
+        cx: 0,
+        cy: 0
       }
 
       super
@@ -23,12 +25,11 @@ module Vexillogram::Element
 
     def primitives
       Vexillogram::Primitive::Circle.new(
-        color: @opts.fetch(:color),
-        cx: 0,
-        cy: 0,
-        radius: @opts.fetch(:radius),
-        translate_x: translate_x,
-        translate_y: translate_y
+        build_primitive_attributes(
+          radius: @opts.fetch(:radius),
+          cx: @opts.fetch(:cx),
+          cy: @opts.fetch(:cy)
+        )
       )
     end
   end
