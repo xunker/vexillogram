@@ -10,43 +10,6 @@ require_relative '../lib/vexillogram'
 # > from the top and bottom. Four bright red stars, with six sharp points each, are set side by
 # > side, close together, in the middle third of the surface of the flag.
 
-module Vexillogram::Group
-  class Horizontal
-    def initialize(opts = {})
-      # @defaults = { }
-      # super
-
-      @elements = []
-      @elements += Array(instance_eval(&blk)).flatten if block_given?
-    end
-
-    def draw(flag)
-      Victor::SVG.new.tap {|svg|
-        @elements.map do |element|
-          svg.build do
-            x_translation = 0
-            y_translation = 0
-
-            if element.width != 1.0
-              centre_x = ((flag.image_width*flag.aspect_proportion)*(element.width))
-              x_translation = (flag.image_width/2)-centre_x
-            end
-
-            if element.height != 1.0
-              centre_y = ((flag.image_height*flag.aspect_proportion)*(element.height))
-              y_translation = (flag.image_height/2)-centre_y
-            end
-
-            g(transform: "translate(#{x_translation} #{y_translation})") {
-              append element.draw(flag)
-            }
-          end
-        end
-      }
-    end
-  end
-end
-
 flag = Vexillogram.new('Chicago', image_width: 200, aspect_ratio: '2:3') do
   add(Vexillogram::Element::Field.new(color: :white))
 
