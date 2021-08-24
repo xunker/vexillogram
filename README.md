@@ -103,10 +103,6 @@ The to-do list is long and will probably always be, as long as humans keep using
 * A json format to represent the description of a flag, like the Ruby code but language-agnostic
   - A parser, to generate an SVG from a json description
   - A generator, to output a json description from the given Ruby code
-* Decouple the SVG drawing from Elements and main code
-  - Have Elements return POROs of basic primitives (rect, poly, circle, path, etc)
-  - Those primitives are them fed to a renderer that reads the and translates them to SVG
-  - This allows the Elements to be completely unaware of the dimensions of the output image
 * Colours: Augment the existing color lookup system to accept standard heraldic colour names
   - Metals: Argent (Silver/White), Or (Gold/Yellow), Copper, Buff (light brownish-yellow, typical of buff leather, treated as metal in USA)
   - Colours: Gules (red), Sable (black), Azure (blue), Vert (green), Purpure (purple)
