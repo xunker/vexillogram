@@ -11,7 +11,16 @@ module Vexillogram::Element
       super
 
       @elements = []
-      @elements += Array(instance_eval(&blk)).flatten if block_given?
+      # @elements += Array(instance_eval(&blk)).flatten if block_given?
+      if block_given?
+        Array(instance_eval(&blk)).flatten.each do |element|
+          # centre symetric elements
+          element.translate_x = 0.5 if (element.x_origin.zero?)
+          element.translate_y = 0.5 if (element.y_origin.zero?)
+
+          @elements << element
+        end
+      end
     end
 
     def horizontal?

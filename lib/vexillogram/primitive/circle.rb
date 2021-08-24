@@ -25,7 +25,8 @@ module Vexillogram::Primitive
         stroke: @opts.fetch(:stroke, nil),
         cx: flag.fly_length_to_image_width(@opts.fetch(:cx)),
         cy: flag.hoist_width_to_image_height(@opts.fetch(:cy)),
-        r: radius
+        r: radius,
+        transform: transform(flag)
       }
     end
 

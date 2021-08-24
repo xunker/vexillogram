@@ -4,6 +4,11 @@
 #   module Element
 #   end
 # end
+
+module Vexillogram::Error
+  class StandardError < StandardError; end
+end
+
 module Vexillogram::Element
 end
 
@@ -63,22 +68,21 @@ class Vexillogram
     image_height * hw
   end
 
+  def primitive_to_svg(svg, primitive)
+    if primitive.is_a?(Array)
+      primitive.map{|p| primitive_to_svg(svg, p)}
+    else
+      svg << Victor::SVG.new.tap {|svg_partial|
+        svg_partial.element primitive.svg_shape, primitive.svg_attributes(self)
+      }
+    end
+  end
+
   def save(filename = nil)
-    # @svg = Victor::SVG.new width: @image_width, height: @image_height, style: { background: field }
     @svg = Victor::SVG.new width: @image_width, height: @image_height
 
-
-
     @elements.each do |element|
-      # instance_eval(&element.draw)
-      # @svg << element.draw(self)
-      primitives = Array(element.primitives).flatten
-
-      @svg << Victor::SVG.new.tap {|svg_partial|
-        primitives.each do |primitive|
-          svg_partial.element primitive.svg_shape, primitive.svg_attributes(self)
-        end
-      }
+      primitive_to_svg(@svg, element.primitives)
     end
 
     if @opts.fetch(:border)
@@ -105,6 +109,4 @@ class Vexillogram
 
     @elements << Elements::Canton.new(opts)
   end
-  class Error < StandardError; end
-  # Your code goes here...
 end

@@ -2,25 +2,14 @@ module Vexillogram::Primitive
   class Base
     def initialize(opts = {})
       @opts = {
-        x_offset: 0,
-        y_offset: 0
+        translate_x: 0,
+        translate_y: 0
       }.merge(@defaults || {}).merge(opts)
     end
 
-    def x_offset
-      @opts.fetch(:x_offset)
-    end
-
-    def y_offset
-      @opts.fetch(:y_offset)
-    end
-
-    def x_offset=(val)
-      @opts[:x_offset] = val
-    end
-
-    def y_offset=(val)
-      @opts[:y_offset] = val
+    def transform(flag)
+      return unless [@opts[:translate_x], @opts[:translate_y]].any?(&:positive?)
+      "translate(#{flag.fly_length_to_image_width(@opts[:translate_x])} #{flag.hoist_width_to_image_height(@opts[:translate_y])})"
     end
   end
 end

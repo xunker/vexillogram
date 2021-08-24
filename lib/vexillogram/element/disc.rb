@@ -26,7 +26,9 @@ module Vexillogram::Element
         color: @opts.fetch(:color),
         cx: 0,
         cy: 0,
-        radius: @opts.fetch(:radius)
+        radius: @opts.fetch(:radius),
+        translate_x: translate_x,
+        translate_y: translate_y
       )
     end
   end

@@ -20,6 +20,21 @@ module Vexillogram::Element
       0.00 # ensure centered when charged/defaced
     end
 
+    def primitives
+      Vexillogram::Primitive::Path.new(
+        color: @opts.fetch(:color),
+        d: SVG_PATH.gsub(/\d+/){|x|
+          # Here we do some really hacky scaling around the SVG path to make it resize
+          # properly when the image output sizes changes.
+          x = ((x.to_f / 100) * @opts[:size]).round(4)
+          x = "0" if x.zero?
+          x
+        },
+        translate_x: translate_x,
+        translate_y: translate_y
+      )
+    end
+
     def draw(flag)
       Victor::SVG.new.tap{ |svg|
         svg.path(
