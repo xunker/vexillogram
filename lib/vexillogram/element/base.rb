@@ -11,7 +11,7 @@ module Vexillogram::Element
 
     def build_primitive_attributes(opts = {})
       {
-        color: @opts.fetch(:color),
+        color: Vexillogram::Color.resolve_color(@opts.fetch(:color)),
         show_bounds: @opts.fetch(:show_bounds),
         translate_x: translate_x,
         translate_y: translate_y

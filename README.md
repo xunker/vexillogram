@@ -103,12 +103,6 @@ The to-do list is long and will probably always be, as long as humans keep using
 * A json format to represent the description of a flag, like the Ruby code but language-agnostic
   - A parser, to generate an SVG from a json description
   - A generator, to output a json description from the given Ruby code
-* Colours: Augment the existing color lookup system to accept standard heraldic colour names
-  - Metals: Argent (Silver/White), Or (Gold/Yellow), Copper, Buff (light brownish-yellow, typical of buff leather, treated as metal in USA)
-  - Colours: Gules (red), Sable (black), Azure (blue), Vert (green), Purpure (purple)
-  - Non-traditional Colours: Bleu celeste (Sky Blue Bleu de Ciel), Brunâtre (brown), Buff (light brownish-yellow, typical of buff leather, treated as color in Canada), Carnation (pale or white human skin), Cendrée (Cinder, Ash Grey), Ochre (both red and yellow), Orange (different from Tenné), Rose (pink)
-  - Furs: Ermines (Erminois, Erminites, Pean), Vair (Potent)
-  - Stains: Murrey (mulberry), Sanguine (blood red), Tenné (Orange/Light Brown/Tawny Orange)
 * Patterns within an element to use with or instead of a colour (see https://en.wikipedia.org/wiki/Variation_of_the_field)
   * option to specify external file to use as pattern
 * Shapes/Aspect Ratios

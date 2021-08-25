@@ -9,7 +9,7 @@ module Vexillogram::Primitive
 
     def build_svg_attributes(flag, opts = {})
       {
-        fill: @opts.fetch(:color),
+        fill: Vexillogram::Color.resolve_color(@opts.fetch(:color)),
         transform: transform(flag)
       }.merge(opts)
     end

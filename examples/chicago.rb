@@ -11,29 +11,26 @@ require_relative '../lib/vexillogram'
 # > side, close together, in the middle third of the surface of the flag.
 
 flag = Vexillogram.new('Chicago', image_width: 200, aspect_ratio: '2:3') do
-  add(Vexillogram::Element::Field.new(color: :white))
+  add(Vexillogram::Element::Field.new(color: :argent))
 
   stripe_width = (1.0/6.0).round(2)
   stripe_offset = (1.0/5.9).round(2)
 
   add([
     Vexillogram::Element::HorizontalBand.new(
-      color: '#87CEEB', from: stripe_offset, to: stripe_width+stripe_offset
+      color: :blue_de_ciel, from: stripe_offset, to: stripe_width+stripe_offset
     ),
 
     Vexillogram::Element::HorizontalBand.new(
-      color: '#87CEEB', from: 1.0 - (stripe_width+stripe_offset), to: 1.0 - stripe_offset
+      color: :blue_de_ciel, from: 1.0 - (stripe_width+stripe_offset), to: 1.0 - stripe_offset
     )
   ])
 
   add(
     Vexillogram::Element::Charge.new(arrangement: :in_fess) {
-      [
-        Vexillogram::Element::Star.new(color: :red, points: 6, size: 0.25, relative_to: :hoist_width),
-        Vexillogram::Element::Star.new(color: :red, points: 6, size: 0.25, relative_to: :hoist_width),
-        Vexillogram::Element::Star.new(color: :red, points: 6, size: 0.25, relative_to: :hoist_width),
-        Vexillogram::Element::Star.new(color: :red, points: 6, size: 0.25, relative_to: :hoist_width)
-      ]
+      4.times.map {
+        Vexillogram::Element::Star.new(color: :gules, points: 6, size: 0.25, relative_to: :hoist_width)
+      }
     }
   )
 end

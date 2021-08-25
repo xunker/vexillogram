@@ -17,6 +17,7 @@ require 'victor'
 require_relative "vexillogram/version"
 require_relative 'vexillogram/element'
 require_relative 'vexillogram/primitive'
+require_relative 'vexillogram/color'
 
 class Vexillogram
   attr_accessor :name, :image_width, :image_height, :hoist_width, :fly_length, :field, :elements
