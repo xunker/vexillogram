@@ -18,12 +18,15 @@ This can be translated in the _vexillogram_ DSL like this:
 
 ```ruby
 Vexillogram.new('Burkina Faso', aspect_ratio: '2:3') do
-  field { [
-      horizontal_band(color: 'red', from: 0, to: 0.5),
-      horizontal_band(color: 'green', from: 0.5, to: 1.0)
-  ] }
-
-  charge { star(color: 'yellow', size: 0.25, points: 5) }
+  add(Vexillogram::Element::Field.new {
+    [
+      Vexillogram::Element::HorizontalBand.new(color: :gules, from: 0, to: 0.5),
+      Vexillogram::Element::HorizontalBand.new(color: :vert, from: 0.5, to: 1.0),
+      Vexillogram::Element::Charge.new {
+        Vexillogram::Element::Star.new(color: :or, size: 0.25, points: 5)
+      }
+    ]
+  })
 end
 ```
 

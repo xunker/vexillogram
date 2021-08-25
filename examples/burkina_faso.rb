@@ -8,16 +8,13 @@ require_relative '../lib/vexillogram'
 flag = Vexillogram.new('Burkina Faso', image_width: 200) do
   add(Vexillogram::Element::Field.new {
     [
-      Vexillogram::Element::HorizontalBand.new(color: 'red', from: 0, to: 0.5),
-      Vexillogram::Element::HorizontalBand.new(color: 'green', from: 0.5, to: 1.0)
+      Vexillogram::Element::HorizontalBand.new(color: :gules, from: 0, to: 0.5),
+      Vexillogram::Element::HorizontalBand.new(color: :vert, from: 0.5, to: 1.0),
+      Vexillogram::Element::Charge.new {
+        Vexillogram::Element::Star.new(color: :or, size: 0.25, points: 5)
+      }
     ]
   })
-
-  add(
-    Vexillogram::Element::Charge.new {
-      Vexillogram::Element::Star.new(color: 'yellow', size: 0.25, points: 5)
-    }
-  )
 end
 
 flag.save
