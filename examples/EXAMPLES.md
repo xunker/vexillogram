@@ -15,6 +15,11 @@
 [![Rendered Flag of Chicago](chicago.svg)](chicago.rb)
 
 -----
+### [Czech Republic](czech_republic.rb)
+
+[![Rendered Flag of Czech Republic](czech_republic.svg)](czech_republic.rb)
+
+-----
 ### [Denmark](denmark.rb)
 
 [![Rendered Flag of Denmark](denmark.svg)](denmark.rb)
