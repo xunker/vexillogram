@@ -1,5 +1,4 @@
-# generate markdown from each example in this dir, based on svgs present
-# paste it in to EXAMPLES.md
+# clean up with `find . -name "*.old.*" -exec rm {} \; -print`
 
 working_dir = ENV['WORKING_DIR'] || '.'
 
