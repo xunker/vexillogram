@@ -16,7 +16,7 @@ module Vexillogram::Element
       if @elements.length == 1
         @elements.last.translate_x = 0.5
         @elements.last.translate_y = 0.5
-      else
+      elsif @elements.length > 1
         # get width of middle elements, and half the width of the first and last
         total_width_of_elements = (@elements[1..-2].map(&:width) + [@elements.first, @elements.last].map{|e| e.width/2}).inject(:+)
 
