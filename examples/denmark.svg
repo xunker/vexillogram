@@ -6,9 +6,10 @@
   xmlns:xlink="http://www.w3.org/1999/xlink">
 
 
-<rect x="0" y="0.0" width="200" height="164.71" rx="0" fill="red"/>
-<rect x="0" y="70.59" width="200" height="23.53" rx="0" fill="white"/>
-<rect x="70.58823529411765" y="0" width="23.52941176470588" height="164.71" rx="0" fill="white"/>
+<rect fill="red" stroke="" x="0" y="0.0" width="200" height="164.71" rx="0"/>
+<rect fill="red" stroke="" x="0" y="0.0" width="200" height="164.71" rx="0"/>
+<rect fill="white" stroke="" x="0" y="70.59" width="200" height="23.53" rx="0"/>
+<rect fill="white" stroke="" x="70.58823529411765" y="0.0" width="23.52941176470588" height="164.71" rx="0"/>
 <rect x="0" y="0" width="200" height="164.71" rx="0" style="stroke:black; fill:; fill-opacity:0"/>
 
 </svg>

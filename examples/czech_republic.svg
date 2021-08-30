@@ -1,0 +1,14 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="200" height="133.33" 
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+
+
+<rect fill="white" stroke="" x="0" y="0.0" width="200" height="66.665" rx="0"/>
+<rect fill="red" stroke="" x="0" y="66.665" width="200" height="66.665" rx="0"/>
+<polygon fill="blue" transform="" points="0 0.0 0 133.33 100.0 66.665 0 0.0"/>
+<rect x="0" y="0" width="200" height="133.33" rx="0" style="stroke:black; fill:; fill-opacity:0"/>
+
+</svg>
