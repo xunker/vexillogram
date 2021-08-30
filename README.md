@@ -88,17 +88,30 @@ The to-do list is long and will probably always be, as long as humans keep using
 * Chevron / Chevron Reversed / Chevron Arched or Enarched
 * Pall
 * Saltire
+  - "diagonal cross as large as the flag with its endpoints on all four corners of the flag" (https://flags.fandom.com/wiki/VexiWiki:Glossary#S)
 * Text Element
 * "Placeholder" element
   - an enclosed primitive (rect, circle, poly) that contains text. The text names the Element that would be here if available
   - Example: Utah state flag, the Great Seal replaced placeholder of aproximate size and colour with text that reads "GREAT SEAL OF UTAH"
   - Clip the text to bounds of the placeholder
+* Triangle
+  - isosceles: a triangle that has two sides of equal length
+  - "A horizontal charge whose apex lies along the meridian, and which may extend up to or slightly exceeding one-half the length of a flag, but whose base generally (but not exclusively) occupies the full width of the hoist" https://www.fotw.info/flags/vxt-dvt4.html#triangle
+  - Example usage: Cuba, Czechia, Djibouti
+  - Also: Voided Triangle
+  - Also: Pile https://www.fotw.info/flags/vxt-dvp4.html#pile
+    * "an isosceles triangle as long as the flag, with the hoist as its base"
+    * AKA Triangle Throughout: https://www.fotw.info/flags/vxt-dvt4.html#triangle
 
 ### Arrangements of Charges
+* Use "meridian" term: https://www.fotw.info/flags/vxt-dvm2.html#meridian
+* Use Upper Hoist / Upper Fly term: https://flags.fandom.com/wiki/VexiWiki:Glossary#U
+  - Assume there is a Lower Hoist and Lower Fly term as well
 * Per Fess
 * Per Pale
 * Per Pall
 * Per Saltire
+* Per Bend
   * two separate objects or charges are placed across each other diagonally on a flag, shield or banner of arms - saltirewise, in_saltire
 
 ### Core

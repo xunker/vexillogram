@@ -14,8 +14,8 @@ module Vexillogram::Element
       @elements += Array(instance_eval(&blk)).flatten if block_given?
 
       if @elements.length == 1
-        @elements.last.translate_x = 0.5
-        @elements.last.translate_y = 0.5
+        @elements.last.translate_x = 0.5 - @elements.last.x_origin
+        @elements.last.translate_y = 0.5 - @elements.last.y_origin
       elsif @elements.length > 1
         # get width of middle elements, and half the width of the first and last
         total_width_of_elements = (@elements[1..-2].map(&:width) + [@elements.first, @elements.last].map{|e| e.width/2}).inject(:+)
@@ -34,9 +34,6 @@ module Vexillogram::Element
           if vertical?
             raise 'vertical charge arrangement not yet implemented'
           end
-
-          # @elements.last.translate_x = 0.5 if (@elements.last.x_origin.zero?)
-          # @elements.last.translate_y = 0.5 if (@elements.last.y_origin.zero?)
         end
       end
     end
