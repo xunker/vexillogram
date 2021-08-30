@@ -1,6 +1,6 @@
 https://en.wikipedia.org/wiki/Glossary_of_vexillology
 https://www.reddragonflagmakers.co.uk/pages/glossary-of-terms
-
+https://flags.fandom.com/wiki/VexiWiki:Glossary
 
 Dictionary of Vexillology: Introduction: https://www.fotw.info/flags/vxt-dvex.html
 Dictionary of Vexillology: Index of Terms (A-B): https://www.fotw.info/flags/vxt_dvia.html

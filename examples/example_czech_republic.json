@@ -1,0 +1,45 @@
+{
+  "vexillogram": {
+    "version": "1.0"
+  },
+  "information": {
+    "name": "Flag of the Czech Republic",
+    "shortName": "Czechia",
+    "description": "Two equal horizontal bands of white (top) and red with a blue isosceles triangle based on the hoist side.",
+    "url": "https: //en.wikipedia.org/wiki/Flag_of_the_Czech_Republic",
+    "specifications": "https: //en.wikipedia.org/wiki/File:Czech_flag_construction.svg",
+    "notes": "Any additional notes"
+  },
+  "construction": {
+    "aspect_ratio": "2:3",
+    "elements": [
+      {
+        "horizontalBand": {
+          "color": "white",
+          "from": 0,
+          "to": 0.5
+        }
+      },
+      {
+        "horizontalBand": {
+          "color": "red",
+          "from": 0.5,
+          "to": 1.0
+        }
+      },
+      {
+        "charge": [
+          {
+            "triangle": {
+              "color": "blue",
+              "hoist_width": 1,
+              "fly_length": 0.5,
+              "apex": 0.5,
+              "base": "hoist"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

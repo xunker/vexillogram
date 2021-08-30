@@ -49,7 +49,7 @@ module Vexillogram::Element
     end
 
     def base?(side)
-      @opts.fetch(:base) == side
+      @opts.fetch(:base).to_sym == side
     end
 
     def primitives

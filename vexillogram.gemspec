@@ -33,6 +33,8 @@ Gem::Specification.new do |spec|
 
   # https://github.com/DannyBen/victor
   spec.add_dependency 'victor', ">= 0.3.3"
+  # https://github.com/leejarvis/slop
+  spec.add_dependency 'slop', ">= 4.0.0"
 
   spec.add_development_dependency 'byebug'
 end

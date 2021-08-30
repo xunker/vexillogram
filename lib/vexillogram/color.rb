@@ -34,7 +34,7 @@ module Vexillogram::Color
   COLORS = TINCTURES.merge(METALS).merge(STAINS)
 
   def self.resolve_color(clr)
-    while !(lookup_color = COLORS[clr]).nil?
+    while !(lookup_color = COLORS[clr.to_sym]).nil?
       clr = lookup_color
     end
     clr

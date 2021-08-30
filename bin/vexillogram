@@ -1,0 +1,99 @@
+#!/usr/bin/env ruby
+
+require 'vexillogram'
+require 'json'
+require 'slop' # command line args parsing
+
+begin
+  opts = Slop.parse do |o|
+    o.banner = 'usage: vexillogram [options]'
+    o.string '-i', '--input', 'input json file containing Vexillogram data (default: STDIN)', default: 'STDIN'
+    o.string '-o', '--output', 'path to output SVG version of input data (default: STDOUT)', default: 'STDOUT'
+    o.bool '-v', '--verbose', 'enable verbose mode', default: false
+    o.integer '-w', '--width', 'width of image output', default: 200
+    o.integer '-H', '--height', 'height of image output'
+    o.on '-h', '--help' do
+      puts "Vexillogram v#{Vexillogram::VERSION}"
+      puts ''
+      puts o
+      exit
+    end
+    o.on '--version', 'print the version' do
+      puts Vexillogram::VERSION
+      exit
+    end
+  end
+rescue Slop::Error => excpt
+  puts excpt
+  exit
+end
+
+# ARGV.replace opts.arguments
+
+input_json = if ['STDIN', '--'].include?(opts[:input])
+  STDIN.read
+else
+  File.open(opts[:input]).read
+end
+
+def deep_symbolize_keys(hash)
+  hash.map{|k, v|
+    if v.is_a?(Hash)
+      [k.to_sym, deep_symbolize_keys(v)]
+    elsif v.is_a?(Array)
+      [k.to_sym, v.map{|vv| deep_symbolize_keys(vv)}]
+    else
+      [k.to_sym, v]
+    end
+  }.to_h
+end
+
+input_json = deep_symbolize_keys(JSON.parse(input_json))
+
+information = {
+  name: 'unknown',
+  shortName: '',
+  description: '',
+  url: '',
+  specifications: '',
+  notes: ''
+}.merge(input_json[:information] || {})
+
+construction = {
+  aspect_ratio: '2:3',
+  elements: []
+}.merge(input_json[:construction] || {})
+
+ELEMENT_CLASSES = {
+  horizontalBand: Vexillogram::Element::HorizontalBand,
+  charge: Vexillogram::Element::Charge,
+  triangle: Vexillogram::Element::Triangle
+}
+
+
+
+def add_element(vex, json_element)
+  if json_element.keys.length > 1
+    raise "too many objects, maximum 1: #{json_element.to_json}"
+  end
+
+  element_type = json_element.keys.first
+  element_attributes = json_element[element_type]
+
+  element_class = ELEMENT_CLASSES[element_type.to_sym]
+
+  raise "Unknown element type: #{element_type.inspect}" if element_class.nil?
+
+  if element_attributes.is_a?(Array)
+    element_attributes.each{|e| add_element(vex, e)}
+  else
+    puts "Adding #{element_class} (#{element_attributes.inspect}"
+    vex.add element_class.new(element_attributes)
+  end
+end
+
+vex = Vexillogram.new(information[:name], aspect_ratio: construction[:aspect_ratio])
+construction[:elements].each do |json_element|
+  add_element(vex, json_element)
+end
+vex.save
