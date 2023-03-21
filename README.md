@@ -8,7 +8,7 @@ Generate SVG image of a flag using a DSL based on standard vexillographical term
 
 The _Vexillogram_ gem implements a DSL (domain-specific language) that will output an SVG image of a flag, using the terms from vexillography (the study of flags).
 
-### Examples
+### Example
 
 The vexillographic description of the [flag of Burkina Faso](https://en.wikipedia.org/wiki/Flag_of_Burkina_Faso) is:
 
@@ -34,6 +34,10 @@ end
 
 ![Generated Flag of Burkina Faso](examples/burkina_faso.svg)
 
+### More Examples
+
+You can find all of the current examples in [the examples directory](examples/EXAMPLES.md).
+
 ## Scope and Purpose
 
 _Vexillogram_ and the DSL is uses are meant to be __descriptive__, not __definitive__. The focus is on approximation, not completeness.
@@ -41,6 +45,11 @@ _Vexillogram_ and the DSL is uses are meant to be __descriptive__, not __definit
 This means a flag description is not expected to include exact details, and the rendered output should not be expected to completely match the official version of the flag. Things such as exact size and placement of elements, complex representations, or anything involving precise detail are not the focus of this project.
 
 ## Installation
+
+> 🚨 IMPORTANT:
+>
+> This gem is **not yet** in rubygems.org, so you must check out this code manually in
+> order to use it. Thus, the instructions below are _not yet applicable_.
 
 Add this line to your application's Gemfile:
 
