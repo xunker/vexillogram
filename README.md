@@ -44,6 +44,24 @@ _Vexillogram_ and the DSL is uses are meant to be __descriptive__, not __definit
 
 This means a flag description is not expected to include exact details, and the rendered output should not be expected to completely match the official version of the flag. Things such as exact size and placement of elements, complex representations, or anything involving precise detail are not the focus of this project.
 
+### Horizontal vs Fly Vs Bar, Vertical vs Hoist vs Strip
+
+Because of reasons[^1], "horizontal" and "vertical" can be ambiguous when describing a flag.
+
+As such, most modern flag descriptions use "horizontal" to refer to the widest dimension, with the remaining as "vertical". Defacements are also assumed to be oriented like this, with left/right referring to "horizontal" and up/down referring to vertical.
+
+The gem follows these conventions. When used without other differentiators:
+* "horizontal" refers to the widest axis, from the hoist-end to the fly-end
+* "vertical" refers to the remaining axis, running the width of the hoist
+
+When working with an instance of `Vexillogram`, the terms are referred to as:
+* `:fly_length` is "horizontal", the widest axis from the hoist-end to the fly-end
+* `:hoist_width` is "vertical", the remaining axis
+
+When figuring absolute values from relative measurements, the methods `#fly_length_to_image_width` and `#hoist_width_to_image_height` are used and are named to avoid confusion.
+
+[^1]: Vexillolgraphic terms and Heraldic terms are often used interchangeably, even though they might not have the same meaning in both contexts. In Vexillology, the "width" of a flag is parallel to the hoist-side, whereas in Heraldry (and common flag parlance) the width is the axis parallel to the top. That means Heraldic terms like "bar" (left-to-right) "stripe" (top-to-bottom) would be reversed if used literally on a flag.
+
 ## Installation
 
 > 🚨 IMPORTANT:
