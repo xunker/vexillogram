@@ -38,3 +38,8 @@
 ### [Sweden](sweden.rb)
 
 [![Rendered Flag of Sweden](sweden.svg)](sweden.rb)
+
+-----
+### [United States of America](united_states_of_america.rb)
+
+[![Rendered Flag of United States of America](united_states_of_america.svg)](united_states_of_america.rb)
