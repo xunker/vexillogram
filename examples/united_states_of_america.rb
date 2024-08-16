@@ -20,23 +20,24 @@ flag = Vexillogram.new('United States of America', aspect_ratio: '10:19') do
     )
   }
 
-  # USA flag's canton is not actually one-quarter of the flag; because there are an off number of
-  # stripes, it's a little taller than 50% of the total height.
+  # USA flag's canton is not actually one-quarter of the flag; because there are
+  # an off number of stripes, it's a little taller than 50% of the total height.
   canton_height = (1.0/13) * 7
   add(
     Vexillogram::Element::Canton.new(
       color: :blue,
-      height: canton_height, width: 0.5
+      height: canton_height
     ) {
-      stars_rows = [6, 5, 6, 5, 6, 5, 6, 5, 6]
-      row_spacing = (canton_height / (stars_rows.length))
-      col_spacing = (0.5 / 6)
-      star_size = 0.025
-      stars_rows.each_with_index.map{|star_count, row|
-        star_count.times.map { |col|
+      row_spacing = (canton_height / 9) # 9 is number of rows of stars
+      col_spacing = (0.5 / 6) # 6 is number of stars in an even numbered row
+      star_size = 0.03
+      9.times.map{|row|
+        stars_on_row = row.even? ? 6 : 5
+        stars_on_row.times.map { |col|
+          col_offset = (row.odd? ? (star_size*1.25) : 0.0)
           Vexillogram::Element::Star.new(
             translate_y: (row_spacing * row) + (row_spacing/2),
-            translate_x: (col_spacing * col) + (col_spacing/2) + (row.odd? ? star_size*1.75 : 0.0),
+            translate_x: (col_spacing * col) + (col_spacing/2) + col_offset,
             color: :white,
             size: star_size,
             points: 5
